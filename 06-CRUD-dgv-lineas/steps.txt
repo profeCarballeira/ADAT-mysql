@@ -2,3 +2,10 @@
 2. Me que con el código fuente de controllers y mdodels (cambiando los workspaces)
 3. Crear un formulario en la carpeta Views (FormEmployees)
 4.  Enlazar el comienzo del proyecto a este formulario
+6. A través de nuget meter la librería de MySql
+7. Añadimos un dgv y un Botón "Añadir" al FormEmployees
+8. Añadir los using de modelos y controladores y crear un objeto controlador
+9. Metodos ConfigurarGrid() y CargarDatos()
+10. Crear Formulario Edicion Empleado (FormEditEmployees)
+
+
