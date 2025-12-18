@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _06_CRUD_dgv_lineas.Models;
 using _06_CRUD_dgv_lineas.Controllers;
+using _06_CRUD_dgv_lineas.Properties;
 
 namespace _06_CRUD_dgv_lineas.Views
 {
@@ -27,7 +28,8 @@ namespace _06_CRUD_dgv_lineas.Views
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-
+                    empCtl.Insert(frm.EmployeeResult);
+                    CargarDatos();
                 }
             }
         }
@@ -47,6 +49,7 @@ namespace _06_CRUD_dgv_lineas.Views
             var colEdit = new DataGridViewImageColumn();
             colEdit.Name = "btnModify";
             colEdit.HeaderText = "Modificar";
+            colEdit.Image = Resources.edit24;
             colEdit.Width = 50;
             dgvEmployees.Columns.Add(colEdit);
 
@@ -54,6 +57,7 @@ namespace _06_CRUD_dgv_lineas.Views
             var colDelete = new DataGridViewImageColumn();
             colDelete.Name = "btnDelete";
             colDelete.HeaderText = "Borrar";
+            colDelete.Image = Resources.delete24;
             colDelete.Width = 50;
             dgvEmployees.Columns.Add(colDelete);
 
@@ -83,10 +87,39 @@ namespace _06_CRUD_dgv_lineas.Views
             dgvEmployees.Columns.Add(colBirth);
 
         }
-        private void CargarDatos() 
+        private void CargarDatos()
         {
             dgvEmployees.DataSource = null;
             dgvEmployees.DataSource = empCtl.GetAll();
+        }
+
+        private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            var fila = dgvEmployees.Rows[e.RowIndex];
+            int id = Convert.ToInt32(fila.Cells["EmployeeID"].Value);
+
+            //Editar
+            if (dgvEmployees.Columns[e.ColumnIndex].Name == "btnModify")
+            {
+                var emp = empCtl.GetById(id);
+                if (emp == null) return;
+
+                using (var frm = new FormEditEmployee(emp))
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        empCtl.Update(frm.EmployeeResult);
+                        CargarDatos();
+                    }
+                }
+            }
+        }
+
+        private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

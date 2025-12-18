@@ -13,10 +13,15 @@ namespace _06_CRUD_dgv_lineas.Controllers
         private readonly string connectionString = 
             "server=localhost;port=3307;user=dam2;password=abc123.;database=w3schools;";
 
+        private MySqlConnection GetConnection()
+        {
+            return new MySqlConnection(connectionString);
+        }
+
         public List<Employee> GetAll()
         {
             var empleados = new List<Employee>();
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = GetConnection())
             {
                 conn.Open();
                 string query = "SELECT EmployeeID, FirstName, LastName, BirthDate FROM employees";
@@ -40,8 +45,40 @@ namespace _06_CRUD_dgv_lineas.Controllers
             }
         }
 
+
+        public Employee GetById(int id)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                string sql = "SELECT EmployeeID, FirstName, LastName, BirthDate FROM employees WHERE EmployeeID = @id";
+
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            return new Employee
+                            {
+                                EmployeeID = Convert.ToInt32(dr["EmployeeID"]),
+                                FirstName = dr["FirstName"].ToString(),
+                                LastName = dr["LastName"].ToString(),
+                                BirthDate = Convert.ToDateTime(dr["BirthDate"])
+                            };
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+
         public bool Delete(int id) {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = GetConnection())
             {
                 conn.Open();
                 string query = "DELETE FROM employees WHERE EmployeeID=@ID";
@@ -54,7 +91,7 @@ namespace _06_CRUD_dgv_lineas.Controllers
 
         public bool Insert(Employee emp)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = GetConnection())
             {
                 conn.Open();
                 string query = @"INSERT INTO employees (FirstName, LastName, BirthDate)
@@ -72,7 +109,7 @@ namespace _06_CRUD_dgv_lineas.Controllers
 
         public bool Update(Employee emp)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = GetConnection())
             {
                 conn.Open();
                 string query = @"UPDATE employees

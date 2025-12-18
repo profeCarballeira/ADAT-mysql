@@ -6,6 +6,11 @@
 7. Añadimos un dgv y un Botón "Añadir" al FormEmployees
 8. Añadir los using de modelos y controladores y crear un objeto controlador
 9. Metodos ConfigurarGrid() y CargarDatos()
-10. Crear Formulario Edicion Empleado (FormEditEmployees)
+10. Crear Formulario Edicion/Alta Empleado (FormEditEmployees)
+11. Unir el botón Añadir con el formulario
+12. Meter los iconos de editar y borrar como recursos y añadirlos en las columnas (Image)
+13. Crear un método en el controlador para obtener los datos de un empleado (GetById)
+14. Programar el evento click del datagridview....
+15. Controlar cuando se hace click en la columna de edición e invocar al formulario, pasándole los datos
 
 

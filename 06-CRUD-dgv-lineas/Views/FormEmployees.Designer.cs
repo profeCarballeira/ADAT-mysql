@@ -43,6 +43,7 @@
             dgvEmployees.RowHeadersWidth = 51;
             dgvEmployees.Size = new Size(776, 202);
             dgvEmployees.TabIndex = 0;
+            dgvEmployees.CellClick += dgvEmployees_CellClick;
             // 
             // btnAdd
             // 
