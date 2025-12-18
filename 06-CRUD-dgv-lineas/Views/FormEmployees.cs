@@ -114,10 +114,28 @@ namespace _06_CRUD_dgv_lineas.Views
                         CargarDatos();
                     }
                 }
+                return;
             }
+
+            //Borrar
+            if (dgvEmployees.Columns[e.ColumnIndex].Name == "btnDelete")
+            {
+                if (MessageBox.Show ("¿Deseas borrar este empleado?", "Confirmar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning ) == DialogResult.Yes) { 
+                    empCtl.Delete(id);
+                    CargarDatos();
+                }
+                return;
+            }
+
         }
 
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvEmployees_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

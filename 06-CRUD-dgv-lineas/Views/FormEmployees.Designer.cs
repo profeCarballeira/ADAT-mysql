@@ -44,6 +44,7 @@
             dgvEmployees.Size = new Size(776, 202);
             dgvEmployees.TabIndex = 0;
             dgvEmployees.CellClick += dgvEmployees_CellClick;
+            dgvEmployees.CellContentClick += dgvEmployees_CellContentClick_1;
             // 
             // btnAdd
             // 

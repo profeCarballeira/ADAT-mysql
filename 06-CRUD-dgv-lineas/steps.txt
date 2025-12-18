@@ -12,5 +12,6 @@
 13. Crear un método en el controlador para obtener los datos de un empleado (GetById)
 14. Programar el evento click del datagridview....
 15. Controlar cuando se hace click en la columna de edición e invocar al formulario, pasándole los datos
+16. Hacer lo mismo con el borrado
 
 
