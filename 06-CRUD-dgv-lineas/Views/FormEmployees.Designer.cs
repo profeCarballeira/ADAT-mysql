@@ -43,8 +43,13 @@
             dgvEmployees.RowHeadersWidth = 51;
             dgvEmployees.Size = new Size(776, 202);
             dgvEmployees.TabIndex = 0;
+            dgvEmployees.AllowUserToAddRows = false;
+            dgvEmployees.AllowUserToDeleteRows = false;
+            dgvEmployees.MultiSelect = false;
+            dgvEmployees.ReadOnly = true;
+            dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvEmployees.RowHeadersVisible = false;
             dgvEmployees.CellClick += dgvEmployees_CellClick;
-            dgvEmployees.CellContentClick += dgvEmployees_CellContentClick_1;
             // 
             // btnAdd
             // 

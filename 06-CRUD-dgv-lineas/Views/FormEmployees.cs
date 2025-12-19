@@ -130,14 +130,5 @@ namespace _06_CRUD_dgv_lineas.Views
 
         }
 
-        private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvEmployees_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
