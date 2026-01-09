@@ -1,0 +1,3 @@
+﻿Crear carpetas Models y Controllers (con el conetenido de algún proyecto anterio) "CAMBIAR LOS NAMESPACES"
+Incluir (NuGet) librería MySql
+En el Designer del formulario, metemos los campos y botónes (priemreo,último, siguiente....)
