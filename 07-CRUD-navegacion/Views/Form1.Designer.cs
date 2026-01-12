@@ -41,6 +41,8 @@
             btnAnterior = new Button();
             btnSiguiente = new Button();
             btnUltimo = new Button();
+            txtIndiceSalto = new TextBox();
+            btnIrAIndice = new Button();
             SuspendLayout();
             // 
             // label1
@@ -126,6 +128,7 @@
             btnPrimero.TabIndex = 11;
             btnPrimero.Text = "|<";
             btnPrimero.UseVisualStyleBackColor = true;
+            btnPrimero.Click += btnPrimero_Click;
             // 
             // btnAnterior
             // 
@@ -135,6 +138,7 @@
             btnAnterior.TabIndex = 12;
             btnAnterior.Text = "<";
             btnAnterior.UseVisualStyleBackColor = true;
+            btnAnterior.Click += btnAnterior_Click;
             // 
             // btnSiguiente
             // 
@@ -156,11 +160,29 @@
             btnUltimo.UseVisualStyleBackColor = true;
             btnUltimo.Click += btnUltimo_Click;
             // 
+            // txtIndiceSalto
+            // 
+            txtIndiceSalto.Location = new Point(244, 274);
+            txtIndiceSalto.Name = "txtIndiceSalto";
+            txtIndiceSalto.Size = new Size(47, 27);
+            txtIndiceSalto.TabIndex = 15;
+            // 
+            // btnIrAIndice
+            // 
+            btnIrAIndice.Location = new Point(312, 271);
+            btnIrAIndice.Name = "btnIrAIndice";
+            btnIrAIndice.Size = new Size(61, 30);
+            btnIrAIndice.TabIndex = 16;
+            btnIrAIndice.Text = "Ir a";
+            btnIrAIndice.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(614, 300);
+            ClientSize = new Size(614, 330);
+            Controls.Add(btnIrAIndice);
+            Controls.Add(txtIndiceSalto);
             Controls.Add(btnUltimo);
             Controls.Add(btnSiguiente);
             Controls.Add(btnAnterior);
@@ -197,5 +219,7 @@
         private Button btnAnterior;
         private Button btnSiguiente;
         private Button btnUltimo;
+        private TextBox txtIndiceSalto;
+        private Button btnIrAIndice;
     }
 }

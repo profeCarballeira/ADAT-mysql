@@ -34,7 +34,9 @@ namespace _07_CRUD_navegacion.Views
                 }
                 else
                 {
-                    //TODO: completar caso de no empleados
+                    currentIndex = -1;
+                    ClearControls();
+                    UpdateNavigator();
                 }
 
             }
@@ -44,10 +46,20 @@ namespace _07_CRUD_navegacion.Views
             }
         }
 
+        private void ClearControls() {
+            txtID.Clear();
+            txtNombre.Clear();
+            txtApellidos.Clear();
+            dtpFechaNacimiento.Value = DateTime.Today;
+        }
         private void ShowCurrentEmployee()
         {
-
-            //TODO: si no hya empleados
+            if (employees == null ||  employees.Count == 0 || currentIndex < 0 || currentIndex >= employees.Count) 
+            { 
+                ClearControls();
+                UpdateNavigator();
+                return;
+            }
 
             var emp = employees[currentIndex];
             txtID.Text = emp.EmployeeID.ToString();
@@ -63,7 +75,11 @@ namespace _07_CRUD_navegacion.Views
         {
             if (employees == null || employees.Count == 0)
             {
-                //TODO: que lo hagan los becarios
+                lblIndice.Text = "0 de 0";
+                btnPrimero.Enabled = false; 
+                btnAnterior.Enabled = false; 
+                btnUltimo.Enabled = false;
+                btnSiguiente.Enabled = false;
             }
             lblIndice.Text = $"{currentIndex + 1} de {employees.Count}";
 
@@ -75,17 +91,39 @@ namespace _07_CRUD_navegacion.Views
 
         private void btnUltimo_Click(object sender, EventArgs e)
         {
-
+            if (employees == null || employees.Count == 0) return;
+            currentIndex = employees.Count - 1;
+            ShowCurrentEmployee();
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             if (employees == null || employees.Count == 0) return;
             //no puedo ir al siguiente si estoy en el último
-            if (currentIndex < employees.Count - 1) { 
+            if (currentIndex < employees.Count - 1)
+            {
                 currentIndex++;
                 ShowCurrentEmployee();
             }
+        }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            if (employees == null || employees.Count == 0) return;
+            currentIndex = 0;
+            ShowCurrentEmployee();
+
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (employees == null || employees.Count == 0) return;
+            if (currentIndex > 0)
+            {
+                currentIndex--;
+                ShowCurrentEmployee();
+            }
+
         }
     }
 }
