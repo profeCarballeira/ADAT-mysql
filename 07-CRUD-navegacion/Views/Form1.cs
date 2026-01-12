@@ -46,7 +46,8 @@ namespace _07_CRUD_navegacion.Views
             }
         }
 
-        private void ClearControls() {
+        private void ClearControls()
+        {
             txtID.Clear();
             txtNombre.Clear();
             txtApellidos.Clear();
@@ -54,8 +55,8 @@ namespace _07_CRUD_navegacion.Views
         }
         private void ShowCurrentEmployee()
         {
-            if (employees == null ||  employees.Count == 0 || currentIndex < 0 || currentIndex >= employees.Count) 
-            { 
+            if (employees == null || employees.Count == 0 || currentIndex < 0 || currentIndex >= employees.Count)
+            {
                 ClearControls();
                 UpdateNavigator();
                 return;
@@ -76,8 +77,8 @@ namespace _07_CRUD_navegacion.Views
             if (employees == null || employees.Count == 0)
             {
                 lblIndice.Text = "0 de 0";
-                btnPrimero.Enabled = false; 
-                btnAnterior.Enabled = false; 
+                btnPrimero.Enabled = false;
+                btnAnterior.Enabled = false;
                 btnUltimo.Enabled = false;
                 btnSiguiente.Enabled = false;
             }
@@ -124,6 +125,33 @@ namespace _07_CRUD_navegacion.Views
                 ShowCurrentEmployee();
             }
 
+        }
+
+        private void btnIrAIndice_Click(object sender, EventArgs e)
+        {
+            //int ind = System.Convert.ToInt32(this.txtIndiceSalto.Text);
+            //if ((ind > 0) && (ind <= employees.Count))
+            //{
+            //    currentIndex = ind - 1;
+            //    ShowCurrentEmployee();
+            //}
+            int ind;
+            if (int.TryParse(this.txtIndiceSalto.Text, out ind))
+            {
+                if (ind > 0 && ind <= employees.Count)
+                {
+                    currentIndex = ind - 1;
+                    ShowCurrentEmployee();
+                }
+                else
+                {
+                    MessageBox.Show($"Introduce un número entre 1 y {employees.Count}.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Introduce un número válido.");
+            }
         }
     }
 }

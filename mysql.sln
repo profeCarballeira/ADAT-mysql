@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-CRUD-dgv-lineas", "06-CR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-CRUD-navegacion", "07-CRUD-navegacion\07-CRUD-navegacion.csproj", "{87F56A49-935E-4467-9205-6FE5E50A3694}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-Borra", "00-Borra\00-Borra.csproj", "{7FDE27EF-A9B5-4E53-8255-1FC407A44EE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{87F56A49-935E-4467-9205-6FE5E50A3694}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87F56A49-935E-4467-9205-6FE5E50A3694}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87F56A49-935E-4467-9205-6FE5E50A3694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FDE27EF-A9B5-4E53-8255-1FC407A44EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FDE27EF-A9B5-4E53-8255-1FC407A44EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FDE27EF-A9B5-4E53-8255-1FC407A44EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FDE27EF-A9B5-4E53-8255-1FC407A44EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

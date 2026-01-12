@@ -175,6 +175,7 @@
             btnIrAIndice.TabIndex = 16;
             btnIrAIndice.Text = "Ir a";
             btnIrAIndice.UseVisualStyleBackColor = true;
+            btnIrAIndice.Click += btnIrAIndice_Click;
             // 
             // Form1
             // 
